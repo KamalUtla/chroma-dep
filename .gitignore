@@ -1,2 +1,3 @@
 chrom/
 __pycache__/
+*.ipynb

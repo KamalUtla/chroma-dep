@@ -162,7 +162,7 @@ if __name__ == "__main__":
     parser.add_argument('--host', type=str, default='localhost', help='ChromaDB host address')
     parser.add_argument('--port', type=int, default=8000, help='ChromaDB port number')
     parser.add_argument('--part-number', type=str, required=True, help='Part number to process')
-
+    parser.add_argument('--batch-size', type=int, default=2500, help='Batch size for uploading to ChromaDB')
     args = parser.parse_args()
     host = f"{args.host}"
     
@@ -195,7 +195,7 @@ if __name__ == "__main__":
 
         global_counter = 0
 
-        batch_size = 2500
+        batch_size = args.batch_size
         logging.info(f"Using batch size: {batch_size}")
 
         batch_vectors = []
